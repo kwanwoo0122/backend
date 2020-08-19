@@ -1,10 +1,13 @@
 import { Router } from 'express';
 
+import controllers from './controllers';
+import middlewares from './middlewares';
+import users from './users';
+
 const router = Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.use('/controllers', controllers);
+router.use('/middlewares', middlewares);
+router.use('/users', users);
 
-module.exports = router;
+export default router;
